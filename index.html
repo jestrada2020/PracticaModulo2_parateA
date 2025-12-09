@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Módulo 2 - Importancia de los Números</title>
+            <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            font-size: 1.15em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .objectives {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 25px;
+            margin-bottom: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.08);
+        }
+        
+        .objectives h2 {
+            color: #3b82f6;
+            margin-bottom: 18px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .objectives ul {
+            list-style-type: none;
+        }
+        
+        .objectives li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #1e293b;
+        }
+        
+        .objectives li:before {
+            content: "✓";
+            color: #3b82f6;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .number-sets {
+            margin-bottom: 35px;
+        }
+
+        .number-sets h2 {
+            color: #1e293b;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .number-set {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #6366f1;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.08);
+        }
+
+        .number-set h3 {
+            color: #6366f1;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .math-formula {
+            background-color: #ffffff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .applications {
+            margin-top: 15px;
+        }
+
+        .applications strong {
+            color: #1e293b;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .applications ul {
+            list-style-type: disc;
+            margin-left: 25px;
+        }
+
+        .applications li {
+            margin-bottom: 8px;
+            color: #475569;
+        }
+        
+        .module-explanation {
+            background: linear-gradient(135deg, #fef3c7 0%, rgba(254, 243, 199, 0.5) 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 25px;
+            margin-bottom: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.08);
+        }
+        
+        .module-explanation h2 {
+            color: #f59e0b;
+            margin-bottom: 18px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .module-explanation p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #1e293b;
+        }
+        
+        .exercise {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+        
+        .exercise:hover {
+            border-color: #a5b4fc;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .exercise h3 {
+            color: #6366f1;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #a5b4fc;
+        }
+        
+        .context, .data, .solution {
+            margin-bottom: 20px;
+            padding: 18px;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            border-left: 3px solid #10b981;
+        }
+        
+        .context strong, .data strong, .solution strong {
+            color: #10b981;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .questions {
+            margin-top: 20px;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 18px;
+            background-color: #fafbfc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .question p {
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            color: #475569;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .points {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .exercise-content {
+            margin-top: 15px;
+        }
+
+        .exercise-content p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .exercise-content ul, .exercise-content ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .exercise-content li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .answer-input-container {
+            margin-top: 20px;
+        }
+
+        .answer-input-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 1em;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-check {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .btn-check:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d1fae5;
+            color: #065f46;
+            border-left: 4px solid #10b981;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+            display: block;
+        }
+
+        .solution {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+        }
+
+        .solution.show {
+            display: block;
+        }
+
+        .solution p {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .solution strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .advanced-exercises h2 {
+            color: #1e293b;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .project {
+            margin-top: 40px;
+        }
+
+        .project h2 {
+            color: #6366f1;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .project h3 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .final-reflection {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 12px;
+        }
+
+        .final-reflection h2 {
+            color: #7c3aed;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .final-reflection p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 12px;
+        }
+
+        .score-display h3 {
+            color: #1e293b;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .score-value {
+            color: #6366f1;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+        
+        .answer-input {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 1.05em;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: #ffffff;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        
+        .answer-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            background-color: #ffffff;
+        }
+        
+        .button {
+            padding: 14px 32px;
+            font-size: 1.05em;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .btn-reset {
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            color: white;
+        }
+        
+        .btn-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(100, 116, 139, 0.3);
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 35px 0;
+        }
+        
+        .results {
+            background: linear-gradient(135deg, #d1fae5 0%, rgba(209, 250, 229, 0.5) 100%);
+            border-left: 4px solid #10b981;
+            padding: 30px;
+            margin-top: 35px;
+            border-radius: 12px;
+            display: none;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+        }
+        
+        .score {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .score-pass {
+            color: #10b981;
+        }
+        
+        .score-fail {
+            color: #ef4444;
+        }
+        
+        .feedback {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 1.15em;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.95em;
+        }
+        
+        /* Estilos para MathJax/LaTeX */
+        .MathJax, .MathJax_Display {
+            font-size: 1.1em !important;
+        }
+        
+        mjx-container {
+            margin: 8px 0 !important;
+        }
+        
+        mjx-container[jax="CHTML"][display="true"] {
+            margin: 1em 0 !important;
+        }
+        
+        .math-inline {
+            color: #6366f1;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .button {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+    
+    <!-- MathJax para renderizado LaTeX profesional -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\(', '\)']],
+                displayMath: [['$$', '$$'], ['\[', '\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.1
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Práctica Módulo 2</h1>
+            <div class="subtitle">Importancia de los Números · Aplicación en Sistemas Pecuarios</div>
+        </header>
+
+        <section class="learning-objectives">
+            <h2>Objetivos de Aprendizaje</h2>
+            <ul>
+                <li>Comprender los diferentes conjuntos numéricos y su aplicación en producción pecuaria</li>
+                <li>Utilizar números naturales, enteros, racionales y reales en contextos agropecuarios</li>
+                <li>Aplicar propiedades de los números para resolver problemas de producción animal</li>
+                <li>Desarrollar habilidad para interpretar datos numéricos en sistemas pecuarios</li>
+            </ul>
+        </section>
+
+        <section class="module-explanation">
+            <h2>Importancia de los Números</h2>
+            <p>Este módulo explora la importancia fundamental de los números en la producción pecuaria y su estandarización internacional. Los números son la base del lenguaje científico y técnico, permitiendo cuantificar, medir, comparar y analizar todos los aspectos de la producción animal. En el contexto global, los sistemas pecuarios utilizan estándares numéricos internacionales que facilitan la comunicación técnica, el comercio y la investigación científica entre diferentes países y regiones.</p>
+            <p>El módulo aborda la clasificación de los números (naturales, enteros, racionales, irracionales y reales) y sus propiedades específicas, esenciales para comprender cálculos de inventarios, pesos, volúmenes, concentraciones, tasas de crecimiento y rendimientos productivos. Se estudia la evolución histórica de los sistemas numéricos y cómo diferentes culturas desarrollaron métodos para contar y calcular, lo que permite apreciar la universalidad de las matemáticas.</p>
+            <p>Los estudiantes comprenderán que la correcta interpretación y uso de números es crítica para la toma de decisiones, el control de calidad, el cumplimiento normativo y la optimización de procesos en sistemas pecuarios modernos.</p>
+        </section>
+
+        <section class="number-sets">
+            <h2>Conjuntos Numéricos Fundamentales</h2>
+            
+            <div class="number-set">
+                <h3>Números Naturales (<span class="math-inline">$\mathbb{N}$</span>)</h3>
+                <div class="math-formula">$$\mathbb{N} = \{1, 2, 3, 4, 5, ...\}$$</div>
+                <div class="applications">
+                    <strong>Aplicaciones en producción pecuaria:</strong>
+                    <ul>
+                        <li>Conteo de animales en inventario</li>
+                        <li>Número de corrales o divisiones</li>
+                        <li>Días de ciclo productivo</li>
+                        <li>Cantidad de alimento (en unidades completas)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="number-set">
+                <h3>Números Enteros (<span class="math-inline">$\mathbb{Z}$</span>)</h3>
+                <div class="math-formula">$$\mathbb{Z} = \{..., -3, -2, -1, 0, 1, 2, 3, ...\}$$</div>
+                <div class="applications">
+                    <strong>Aplicaciones:</strong>
+                    <ul>
+                        <li>Cambios en inventario (aumentos y disminuciones)</li>
+                        <li>Pérdidas y ganancias económicas</li>
+                        <li>Variaciones de peso</li>
+                        <li>Temperatura en sistemas de climatización</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="number-set">
+                <h3>Números Racionales (<span class="math-inline">$\mathbb{Q}$</span>)</h3>
+                <div class="math-formula">$$\mathbb{Q} = \left\{\frac{p}{q} : p \in \mathbb{Z}, q \in \mathbb{Z}, q \neq 0\right\}$$</div>
+                <div class="applications">
+                    <strong>Aplicaciones:</strong>
+                    <ul>
+                        <li>Proporciones en mezclas alimenticias</li>
+                        <li>Porcentajes de proteína, grasa, etc.</li>
+                        <li>Tasas de conversión alimenticia</li>
+                        <li>Rendimientos y eficiencias</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 1: Números Naturales - Inventario Ganadero <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p><strong>Contexto:</strong> Una finca ganadera realiza un inventario mensual de sus animales.</p>
+                <p><strong>Datos iniciales (enero):</strong></p>
+                <ul>
+                    <li>Vacas adultas: 85</li>
+                    <li>Terneros: 42</li>
+                    <li>Novillas: 38</li>
+                    <li>Toros: 5</li>
+                </ul>
+                <p><strong>Movimientos durante el mes:</strong></p>
+                <ul>
+                    <li>Nacimientos: 12 terneros</li>
+                    <li>Ventas: 15 vacas, 8 novillas</li>
+                    <li>Compras: 3 novillas</li>
+                    <li>Mortalidad: 2 terneros</li>
+                </ul>
+                <div class="answer-input-container">
+                    <label for="ex1-answer">Solución (Total final de animales):</label>
+                    <input type="number" id="ex1-answer" class="answer-input" placeholder="Ingrese el total final">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(1)">Verificar Respuesta</button>
+            <div id="ex1-feedback" class="feedback"></div>
+            <div id="ex1-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>Total inicial: $T_i = 85 + 42 + 38 + 5 = 170$ animales</p>
+                <p>Inventario final por categoría:</p>
+                <p>Vacas: $85 - 15 = 70$</p>
+                <p>Terneros: $42 + 12 - 2 = 52$</p>
+                <p>Novillas: $38 - 8 + 3 = 33$</p>
+                <p>Toros: $5$ (sin cambios)</p>
+                <p>Total final: $T_f = 70 + 52 + 33 + 5 = 160$ animales</p>
+                <p>Cambio neto: $\Delta T = 160 - 170 = -10$ animales (número entero negativo)</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 2: Números Racionales - Composición de Alimento <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p><strong>Contexto:</strong> Se prepara un concentrado para cerdos con las siguientes proporciones:</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>Proporción</th>
+                        </tr>
+                        <tr>
+                            <td>Maíz</td>
+                            <td>$\frac{5}{10}$ ($50\%$)</td>
+                        </tr>
+                        <tr>
+                            <td>Soya</td>
+                            <td>$\frac{3}{10}$ ($30\%$)</td>
+                        </tr>
+                        <tr>
+                            <td>Minerales</td>
+                            <td>$\frac{1}{10}$ ($10\%$)</td>
+                        </tr>
+                        <tr>
+                            <td>Otros</td>
+                            <td>$\frac{1}{10}$ ($10\%$)</td>
+                        </tr>
+                    </table>
+                </div>
+                <p><strong>Preguntas:</strong></p>
+                <ol>
+                    <li>Si se preparan 1,000 kg, ¿cuántos kg de cada ingrediente se necesitan?</li>
+                    <li>Exprese cada proporción como decimal.</li>
+                    <li>Verifique que la suma de fracciones sea 1.</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex2-answer">Solución (Total de kg de maíz):</label>
+                    <input type="number" id="ex2-answer" class="answer-input" placeholder="Ingrese la cantidad de maíz en kg">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(2)">Verificar Respuesta</button>
+            <div id="ex2-feedback" class="feedback"></div>
+            <div id="ex2-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>a) Cantidades en kg:</p>
+                <p>Maíz: $\frac{5}{10} \times 1000 = 500$ kg</p>
+                <p>Soya: $\frac{3}{10} \times 1000 = 300$ kg</p>
+                <p>Minerales: $\frac{1}{10} \times 1000 = 100$ kg</p>
+                <p>Otros: $\frac{1}{10} \times 1000 = 100$ kg</p>
+                <p>b) Expresión decimal:</p>
+                <p>$\frac{5}{10} = 0.5$</p>
+                <p>$\frac{3}{10} = 0.3$</p>
+                <p>$\frac{1}{10} = 0.1$</p>
+                <p>c) Verificación:</p>
+                <p>$\frac{5}{10} + \frac{3}{10} + \frac{1}{10} + \frac{1}{10} = \frac{10}{10} = 1$</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 3: Clasificación de Huevos por Tamaño <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p>Una granja avícola clasifica los huevos en diferentes categorías según su peso:</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Peso (gramos)</th>
+                        </tr>
+                        <tr>
+                            <td>Pequeño</td>
+                            <td>43-52</td>
+                        </tr>
+                        <tr>
+                            <td>Mediano</td>
+                            <td>53-62</td>
+                        </tr>
+                        <tr>
+                            <td>Grande</td>
+                            <td>63-72</td>
+                        </tr>
+                        <tr>
+                            <td>Extra Grande</td>
+                            <td>&gt;72</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>Producción diaria: 10,000 huevos distribuidos así:</p>
+                <ul>
+                    <li>Pequeño: $15\%$</li>
+                    <li>Mediano: $35\%$</li>
+                    <li>Grande: $40\%$</li>
+                    <li>Extra Grande: $10\%$</li>
+                </ul>
+                <ol>
+                    <li>Calcule cuántos huevos hay en cada categoría (números naturales).</li>
+                    <li>Exprese cada porcentaje como fracción simplificada.</li>
+                    <li>Si los precios son: Pequeño $400, Mediano $500, Grande $600, Extra Grande $700, calcule el ingreso diario total.</li>
+                    <li>¿Qué fracción del ingreso proviene de huevos grandes y extra grandes?</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex3-answer">Solución (Ingreso diario total):</label>
+                    <input type="number" id="ex3-answer" class="answer-input" placeholder="Ingrese el ingreso diario total">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(3)">Verificar Respuesta</button>
+            <div id="ex3-feedback" class="feedback"></div>
+            <div id="ex3-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>1) Cantidad de huevos por categoría:</p>
+                <p>Pequeño: $10,000 \times 0.15 = 1,500$ huevos</p>
+                <p>Mediano: $10,000 \times 0.35 = 3,500$ huevos</p>
+                <p>Grande: $10,000 \times 0.40 = 4,000$ huevos</p>
+                <p>Extra Grande: $10,000 \times 0.10 = 1,000$ huevos</p>
+                <p>2) Fracciones simplificadas:</p>
+                <p>Pequeño: $\frac{15}{100} = \frac{3}{20}$</p>
+                <p>Mediano: $\frac{35}{100} = \frac{7}{20}$</p>
+                <p>Grande: $\frac{40}{100} = \frac{2}{5}$</p>
+                <p>Extra Grande: $\frac{10}{100} = \frac{1}{10}$</p>
+                <p>3) Ingreso diario total:</p>
+                <p>$1,500 \times 400 + 3,500 \times 500 + 4,000 \times 600 + 1,000 \times 700 = 600,000 + 1,750,000 + 2,400,000 + 700,000 = 5,450,000$ pesos</p>
+                <p>4) Fracción del ingreso de grandes y extra grandes:</p>
+                <p>$\frac{2,400,000 + 700,000}{5,450,000} = \frac{3,100,000}{5,450,000} = \frac{62}{109}$</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 4: Variaciones de Temperatura <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p>Un galpón de pollos tiene control de temperatura. Los registros de una semana muestran:</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Día</th>
+                            <th>Temperatura (°C)</th>
+                        </tr>
+                        <tr>
+                            <td>Lunes</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>Martes</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>Miércoles</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Jueves</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>Viernes</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>Sábado</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>28</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>Temperatura óptima: 27°C</p>
+                <ol>
+                    <li>Calcule las desviaciones diarias respecto a la temperatura óptima (números enteros).</li>
+                    <li>Calcule la temperatura promedio de la semana.</li>
+                    <li>¿Cuántos días estuvo por encima del óptimo?</li>
+                    <li>¿Cuál fue la mayor variación (positiva o negativa)?</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex4-answer">Solución (Temperatura promedio):</label>
+                    <input type="number" id="ex4-answer" class="answer-input" placeholder="Ingrese la temperatura promedio" step="0.1">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(4)">Verificar Respuesta</button>
+            <div id="ex4-feedback" class="feedback"></div>
+            <div id="ex4-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>1) Desviaciones diarias:</p>
+                <p>Lunes: $28 - 27 = +1$°C</p>
+                <p>Martes: $26 - 27 = -1$°C</p>
+                <p>Miércoles: $30 - 27 = +3$°C</p>
+                <p>Jueves: $27 - 27 = 0$°C</p>
+                <p>Viernes: $29 - 27 = +2$°C</p>
+                <p>Sábado: $25 - 27 = -2$°C</p>
+                <p>Domingo: $28 - 27 = +1$°C</p>
+                <p>2) Temperatura promedio:</p>
+                <p>$\frac{28 + 26 + 30 + 27 + 29 + 25 + 28}{7} = \frac{193}{7} \approx 27.57$°C</p>
+                <p>3) Días por encima del óptimo: 4 días (Lunes, Miércoles, Viernes, Domingo)</p>
+                <p>4) Mayor variación: +3°C (Miércoles)</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 5: Producción Lechera <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p>Un hato de 60 vacas produce leche con los siguientes datos:</p>
+                <ul>
+                    <li>20 vacas de alta producción: 25 litros/día cada una</li>
+                    <li>30 vacas de producción media: 18 litros/día cada una</li>
+                    <li>10 vacas de baja producción: 12 litros/día cada una</li>
+                </ul>
+                <ol>
+                    <li>Calcule la producción diaria total (número natural).</li>
+                    <li>Calcule el promedio de producción por vaca (número racional).</li>
+                    <li>Exprese qué fracción del hato representa cada categoría.</li>
+                    <li>Si el precio por litro es $1,200, calcule el ingreso diario.</li>
+                    <li>¿Qué porcentaje de la producción total proviene de las vacas de alta producción?</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex5-answer">Solución (Ingreso diario):</label>
+                    <input type="number" id="ex5-answer" class="answer-input" placeholder="Ingrese el ingreso diario">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(5)">Verificar Respuesta</button>
+            <div id="ex5-feedback" class="feedback"></div>
+            <div id="ex5-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>1) Producción diaria total:</p>
+                <p>$20 \times 25 + 30 \times 18 + 10 \times 12 = 500 + 540 + 120 = 1,160$ litros</p>
+                <p>2) Promedio de producción por vaca:</p>
+                <p>$\frac{1,160}{60} = \frac{58}{3} \approx 19.33$ litros/vaca</p>
+                <p>3) Fracción del hato por categoría:</p>
+                <p>Alta producción: $\frac{20}{60} = \frac{1}{3}$</p>
+                <p>Producción media: $\frac{30}{60} = \frac{1}{2}$</p>
+                <p>Baja producción: $\frac{10}{60} = \frac{1}{6}$</p>
+                <p>4) Ingreso diario:</p>
+                <p>$1,160 \times 1,200 = 1,392,000$ pesos</p>
+                <p>5) Porcentaje de producción de alta producción:</p>
+                <p>$\frac{500}{1,160} \times 100 \approx 43.10\%$</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 6: Análisis de Pesos en Cerdos <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p>Un lote de 100 cerdos en etapa de finalización tiene los siguientes pesos:</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Rango de Peso (kg)</th>
+                            <th>Número de Cerdos</th>
+                        </tr>
+                        <tr>
+                            <td>90-99</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>100-109</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>110-119</td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>120-129</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>130-140</td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                </div>
+                <ol>
+                    <li>¿Qué fracción del lote pesa entre 110-119 kg?</li>
+                    <li>Calcule el peso promedio aproximado (use el punto medio de cada rango).</li>
+                    <li>Si el peso objetivo es 115 kg, ¿cuántos cerdos están por debajo?</li>
+                    <li>Exprese como porcentaje los cerdos que están en el rango objetivo (110-119 kg).</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex6-answer">Solución (Peso promedio):</label>
+                    <input type="number" id="ex6-answer" class="answer-input" placeholder="Ingrese el peso promedio" step="0.1">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(6)">Verificar Respuesta</button>
+            <div id="ex6-feedback" class="feedback"></div>
+            <div id="ex6-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>1) Fracción del lote entre 110-119 kg:</p>
+                <p>$\frac{35}{100} = \frac{7}{20}$</p>
+                <p>2) Peso promedio aproximado:</p>
+                <p>Puntos medios: 94.5, 104.5, 114.5, 124.5, 135</p>
+                <p>Promedio: $\frac{12 \times 94.5 + 28 \times 104.5 + 35 \times 114.5 + 20 \times 124.5 + 5 \times 135}{100} = \frac{1,134 + 2,926 + 4,007.5 + 2,490 + 675}{100} = \frac{11,232.5}{100} = 112.33$ kg</p>
+                <p>3) Cerdos por debajo de 115 kg:</p>
+                <p>12 + 28 + 17.5 = 57.5 $\approx$ 58 cerdos (los 35 en 110-119, 17.5 de los 35 están por debajo de 115)</p>
+                <p>4) Porcentaje en rango objetivo:</p>
+                <p>$\frac{35}{100} \times 100 = 35\%$</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 7: Cálculos con Números Decimales <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p>Una finca porcina registra los siguientes costos por cerdo producido:</p>
+                <ul>
+                    <li>Alimento: $285,750.50</li>
+                    <li>Medicamentos: $42,380.25</li>
+                    <li>Mano de obra: $68,125.00</li>
+                    <li>Otros gastos: $35,890.75</li>
+                </ul>
+                <ol>
+                    <li>Calcule el costo total por cerdo (número decimal).</li>
+                    <li>Si se producen 150 cerdos, ¿cuál es el costo total?</li>
+                    <li>Si el precio de venta es $650,000 por cerdo, ¿cuál es la utilidad por animal?</li>
+                    <li>Calcule el margen de utilidad como fracción y como porcentaje.</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex7-answer">Solución (Utilidad por animal):</label>
+                    <input type="number" id="ex7-answer" class="answer-input" placeholder="Ingrese la utilidad por animal">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(7)">Verificar Respuesta</button>
+            <div id="ex7-feedback" class="feedback"></div>
+            <div id="ex7-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>1) Costo total por cerdo:</p>
+                <p>$285,750.50 + 42,380.25 + 68,125.00 + 35,890.75 = 432,146.50$ pesos</p>
+                <p>2) Costo total para 150 cerdos:</p>
+                <p>$432,146.50 \times 150 = 64,821,975$ pesos</p>
+                <p>3) Utilidad por animal:</p>
+                <p>$650,000 - 432,146.50 = 217,853.50$ pesos</p>
+                <p>4) Margen de utilidad:</p>
+                <p>Fracción: $\frac{217,853.50}{650,000} = \frac{435,707}{1,300,000}$</p>
+                <p>Porcentaje: $\frac{217,853.50}{650,000} \times 100 \approx 33.52\%$</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 8: Conversión entre Formatos Numéricos <span class="points">5 puntos</span></h3>
+            <div class="exercise-content">
+                <p>En producción pecuaria es común convertir entre diferentes formatos numéricos. Complete la tabla:</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Fracción</th>
+                            <th>Decimal</th>
+                            <th>Porcentaje</th>
+                        </tr>
+                        <tr>
+                            <td>Tasa de natalidad</td>
+                            <td>$\frac{17}{20}$</td>
+                            <td>---</td>
+                            <td>---</td>
+                        </tr>
+                        <tr>
+                            <td>Mortalidad</td>
+                            <td>---</td>
+                            <td>0.035</td>
+                            <td>---</td>
+                        </tr>
+                        <tr>
+                            <td>Conversión alimenticia</td>
+                            <td>---</td>
+                            <td>---</td>
+                            <td>$175\%$</td>
+                        </tr>
+                        <tr>
+                            <td>Rendimiento en canal</td>
+                            <td>$\frac{3}{4}$</td>
+                            <td>---</td>
+                            <td>---</td>
+                        </tr>
+                    </table>
+                </div>
+                <ol>
+                    <li>Complete la tabla con las conversiones correspondientes.</li>
+                    <li>Interprete cada valor en el contexto pecuario.</li>
+                    <li>¿Cuál de estos indicadores es más eficiente cuanto menor sea su valor?</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex8-answer">Solución (Tasa de natalidad en porcentaje):</label>
+                    <input type="number" id="ex8-answer" class="answer-input" placeholder="Ingrese el porcentaje de natalidad">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(8)">Verificar Respuesta</button>
+            <div id="ex8-feedback" class="feedback"></div>
+            <div id="ex8-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>1) Tabla completada:</p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Fracción</th>
+                            <th>Decimal</th>
+                            <th>Porcentaje</th>
+                        </tr>
+                        <tr>
+                            <td>Tasa de natalidad</td>
+                            <td>$\frac{17}{20}$</td>
+                            <td>0.85</td>
+                            <td>$85\%$</td>
+                        </tr>
+                        <tr>
+                            <td>Mortalidad</td>
+                            <td>$\frac{7}{200}$</td>
+                            <td>0.035</td>
+                            <td>3.5\%</td>
+                        </tr>
+                        <tr>
+                            <td>Conversión alimenticia</td>
+                            <td>$\frac{7}{4}$</td>
+                            <td>1.75</td>
+                            <td>$175\%$</td>
+                        </tr>
+                        <tr>
+                            <td>Rendimiento en canal</td>
+                            <td>$\frac{3}{4}$</td>
+                            <td>0.75</td>
+                            <td>$75\%$</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>2) Interpretación:</p>
+                <p>- Tasa de natalidad 85\%: 85 de cada 100 hembras dan a luz</p>
+                <p>- Mortalidad 3.5\%: 3.5 de cada 100 animales mueren</p>
+                <p>- Conversión alimenticia 175\%: Se necesitan 1.75 kg de alimento para producir 1 kg de peso vivo</p>
+                <p>- Rendimiento en canal 75\%: De 100 kg de peso vivo se obtienen 75 kg de carne</p>
+                <p>3) El indicador más eficiente cuanto menor es la mortalidad.</p>
+            </div>
+        </section>
+
+        <section class="advanced-exercises">
+            <h2>Ejercicios Aplicados Avanzados</h2>
+            
+            <div class="exercise">
+                <h3>Ejercicio 9: Proporciones en Genética Animal <span class="points">5 puntos</span></h3>
+                <div class="exercise-content">
+                    <p>En un programa de mejoramiento genético bovino, se tienen las siguientes proporciones de razas:</p>
+                    <ul>
+                        <li>Holstein: $\frac{2}{5}$ del hato</li>
+                        <li>Jersey: $\frac{1}{4}$ del hato</li>
+                        <li>Cruces F1: $\frac{7}{20}$ del hato</li>
+                    </ul>
+                    <p>Si el hato total tiene 200 vacas:</p>
+                    <ol>
+                        <li>Verifique que las fracciones suman 1.</li>
+                        <li>Calcule el número de vacas de cada tipo.</li>
+                        <li>Si se quiere aumentar la proporción de Holstein a $\frac{1}{2}$, ¿cuántas vacas de otras razas deben reemplazarse?</li>
+                        <li>Exprese la nueva distribución en fracciones, decimales y porcentajes.</li>
+                    </ol>
+                    <div class="answer-input-container">
+                        <label for="ex9-answer">Solución (Número de vacas Holstein):</label>
+                        <input type="number" id="ex9-answer" class="answer-input" placeholder="Ingrese el número de vacas Holstein">
+                    </div>
+                </div>
+                <button class="btn btn-check" onclick="checkAnswer(9)">Verificar Respuesta</button>
+                <div id="ex9-feedback" class="feedback"></div>
+                <div id="ex9-solution" class="solution">
+                    <p><strong>Solución:</strong></p>
+                    <p>1) Verificación de suma:</p>
+                    <p>$\frac{2}{5} + \frac{1}{4} + \frac{7}{20} = \frac{8}{20} + \frac{5}{20} + \frac{7}{20} = \frac{20}{20} = 1$</p>
+                    <p>2) Número de vacas por tipo:</p>
+                    <p>Holstein: $200 \times \frac{2}{5} = 80$ vacas</p>
+                    <p>Jersey: $200 \times \frac{1}{4} = 50$ vacas</p>
+                    <p>Cruces F1: $200 \times \frac{7}{20} = 70$ vacas</p>
+                    <p>3) Reemplazo para aumentar Holstein a $\frac{1}{2}$:</p>
+                    <p>Nuevas Holstein: $200 \times \frac{1}{2} = 100$ vacas</p>
+                    <p>Se necesitan 20 vacas más de Holstein</p>
+                    <p>Se deben reemplazar 20 vacas de otras razas</p>
+                    <p>4) Nueva distribución:</p>
+                    <p>Holstein: $\frac{1}{2}$ (0.5 o $50\%$)</p>
+                    <p>Otras razas: $\frac{1}{2}$ (0.5 o $50\%$)</p>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>Ejercicio 10: Índices Productivos <span class="points">5 puntos</span></h3>
+                <div class="exercise-content">
+                    <p><strong>Índice de Productividad (IP):</strong></p>
+                    <div class="math-formula">$IP = \frac{\text{Peso promedio (kg)} \times \text{Viabilidad (\%)}}{ICA \times \text{Edad (días)}} \times 100$</div>
+                    <p><strong>Datos de un lote:</strong></p>
+                    <ul>
+                        <li>Peso promedio al sacrificio: 2.8 kg</li>
+                        <li>Viabilidad: $95\%$ (0.95)</li>
+                        <li>ICA: 1.75</li>
+                        <li>Edad: 42 días</li>
+                    </ul>
+                    <ol>
+                        <li>Calcule el índice de productividad.</li>
+                        <li>Si un IP mayor a 350 se considera excelente, evalúe el desempeño del lote.</li>
+                        <li>¿Qué ICA se necesitaría para alcanzar IP = 400 manteniendo los demás parámetros?</li>
+                        <li>Exprese el ICA como fracción irreducible.</li>
+                    </ol>
+                    <div class="answer-input-container">
+                        <label for="ex10-answer">Solución (Índice de productividad):</label>
+                        <input type="number" id="ex10-answer" class="answer-input" placeholder="Ingrese el índice de productividad">
+                    </div>
+                </div>
+                <button class="btn btn-check" onclick="checkAnswer(10)">Verificar Respuesta</button>
+                <div id="ex10-feedback" class="feedback"></div>
+                <div id="ex10-solution" class="solution">
+                    <p><strong>Solución:</strong></p>
+                    <p>1) Cálculo del índice de productividad:</p>
+                    <p>$$IP = \frac{2.8 \times 0.95}{1.75 \times 42} \times 100 = \frac{2.66}{73.5} \times 100 \approx 362$$</p>
+                    <p>2) Evaluación: El IP de 362 es mayor a 350, por lo que el desempeño es excelente.</p>
+                    <p>3) ICA necesario para IP = 400:</p>
+                    <p>$$400 = \frac{2.8 \times 0.95}{ICA \times 42} \times 100$$</p>
+                    <p>$$ICA = \frac{2.8 \times 0.95 \times 100}{400 \times 42} = \frac{266}{16,800} \approx 1.58$$</p>
+                    <p>4) ICA como fracción irreducible:</p>
+                    <p>$$\frac{79}{50}$$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project">
+            <h2>Proyecto Integrador</h2>
+            <h3>Caso: Análisis Numérico de una Empresa Avícola</h3>
+            <div class="exercise-content">
+                <p><strong>Inventario:</strong></p>
+                <ul>
+                    <li>Ponedoras activas: 8,500</li>
+                    <li>Pollitas en levante: 2,000</li>
+                    <li>Aves de descarte: 500</li>
+                </ul>
+                <p><strong>Producción:</strong></p>
+                <ul>
+                    <li>Huevos totales: 212,500</li>
+                    <li>Tasa de postura promedio: 0.85 ($85\%$)</li>
+                    <li>Huevos rotos/descartados: 2.$5\%$</li>
+                </ul>
+                <p><strong>Costos (en pesos):</strong></p>
+                <ul>
+                    <li>Alimento: 95,600,000</li>
+                    <li>Mano de obra: 18,750,000</li>
+                    <li>Servicios: 8,320,500</li>
+                    <li>Otros: 12,450,000</li>
+                </ul>
+                <p><strong>Ingresos:</strong></p>
+                <ul>
+                    <li>Venta de huevos: 138,250,000</li>
+                    <li>Venta de gallinaza: 4,200,000</li>
+                    <li>Venta de aves de descarte: 3,500,000</li>
+                </ul>
+                <p><strong>Desarrolle (use diferentes conjuntos numéricos según corresponda):</strong></p>
+                <ol>
+                    <li>Calcule el total de aves en la granja.</li>
+                    <li>Verifique la tasa de postura con los datos de producción.</li>
+                    <li>Calcule cuántos huevos comercializables se produjeron.</li>
+                    <li>Determine el costo total de operación.</li>
+                    <li>Calcule los ingresos totales.</li>
+                    <li>Calcule la utilidad o pérdida del mes.</li>
+                    <li>Determine el costo de producción por huevo.</li>
+                    <li>Calcule el precio promedio de venta por huevo.</li>
+                    <li>Determine el margen de utilidad como fracción y porcentaje.</li>
+                    <li>Proyecte los resultados para 6 meses asumiendo mismos valores.</li>
+                </ol>
+                <div class="answer-input-container">
+                    <label for="ex11-answer">Solución (Utilidad o pérdida del mes):</label>
+                    <input type="number" id="ex11-answer" class="answer-input" placeholder="Ingrese la utilidad o pérdida">
+                </div>
+            </div>
+            <button class="btn btn-check" onclick="checkAnswer(11)">Verificar Respuesta</button>
+            <div id="ex11-feedback" class="feedback"></div>
+            <div id="ex11-solution" class="solution">
+                <p><strong>Solución:</strong></p>
+                <p>1) Total de aves: $8,500 + 2,000 + 500 = 11,000$ aves</p>
+                <p>2) Verificación de tasa de postura:</p>
+                <p>Tasa real: $\frac{212,500}{8,500 \times 30} \approx 0.833$ o 83.3\% (asumiendo 30 días)</p>
+                <p>La tasa reportada de 85\% es ligeramente superior a la real</p>
+                <p>3) Huevos comercializables: $212,500 \times (1 - 0.025) = 212,500 \times 0.975 = 207,187.5$ huevos</p>
+                <p>4) Costo total: $95,600,000 + 18,750,000 + 8,320,500 + 12,450,000 = 135,120,500$ pesos</p>
+                <p>5) Ingresos totales: $138,250,000 + 4,200,000 + 3,500,000 = 145,950,000$ pesos</p>
+                <p>6) Utilidad: $145,950,000 - 135,120,500 = 10,829,500$ pesos</p>
+                <p>7) Costo por huevo: $\frac{135,120,500}{207,187.5} \approx 652.23$ pesos/huevo</p>
+                <p>8) Precio promedio: $\frac{138,250,000}{207,187.5} \approx 667.08$ pesos/huevo</p>
+                <p>9) Margen de utilidad: $\frac{10,829,500}{145,950,000} \approx 0.0742$ o 7.42\%</p>
+                <p>10) Proyección 6 meses: Utilidad aproximada de $10,829,500 \times 6 = 64,977,000$ pesos</p>
+            </div>
+        </section>
+
+        <section class="final-reflection">
+            <h2>Reflexión Final</h2>
+            <p>Los diferentes conjuntos numéricos permiten:</p>
+            <div class="number-set">
+                <h3>Números Naturales (<span class="math-inline">$\mathbb{N}$</span>):</h3>
+                <ul>
+                    <li>Conteo preciso de inventarios</li>
+                    <li>Planificación de lotes y grupos</li>
+                </ul>
+            </div>
+            <div class="number-set">
+                <h3>Números Enteros (<span class="math-inline">$\mathbb{Z}$</span>):</h3>
+                <ul>
+                    <li>Registro de cambios y variaciones</li>
+                    <li>Análisis de pérdidas y ganancias</li>
+                </ul>
+            </div>
+            <div class="number-set">
+                <h3>Números Racionales (<span class="math-inline">$\mathbb{Q}$</span>):</h3>
+                <ul>
+                    <li>Cálculo de proporciones exactas</li>
+                    <li>Formulación de dietas y mezclas</li>
+                    <li>Evaluación de eficiencias</li>
+                </ul>
+            </div>
+            <div class="number-set">
+                <h3>Números Reales (<span class="math-inline">$\mathbb{R}$</span>):</h3>
+                <ul>
+                    <li>Mediciones de alta precisión</li>
+                    <li>Análisis estadísticos avanzados</li>
+                </ul>
+            </div>
+            <p>La correcta interpretación y uso de los números es fundamental para la gestión eficiente de sistemas pecuarios sostenibles.</p>
+        </section>
+
+        <div class="score-display">
+            <h3>Puntuación Total: <span id="total-score" class="score-value">0</span> / 50 puntos</h3>
+            <button class="btn btn-reset" onclick="resetForm()">Reiniciar Evaluación</button>
+        </div>
+    </div>
+
+    <script>
+        // Puntuación por ejercicio
+        const exerciseScores = {
+            1: 5,
+            2: 5,
+            3: 5,
+            4: 5,
+            5: 5,
+            6: 5,
+            7: 5,
+            8: 5,
+            9: 5,
+            10: 5,
+            11: 5
+        };
+
+        // Respuestas correctas
+        const correctAnswers = {
+            1: "160",
+            2: "500",
+            3: "5450000",
+            4: "27.57",
+            5: "1392000",
+            6: "112.33",
+            7: "217853.5",
+            8: "85",
+            9: "80",
+            10: "362",
+            11: "10829500"
+        };
+
+        let totalScore = 0;
+
+        function checkAnswer(exerciseNumber) {
+            const answerInput = document.getElementById(`ex${exerciseNumber}-answer`);
+            const feedback = document.getElementById(`ex${exerciseNumber}-feedback`);
+            const solution = document.getElementById(`ex${exerciseNumber}-solution`);
+            
+            const userAnswer = answerInput.value.trim();
+            const correctAnswer = correctAnswers[exerciseNumber];
+            
+            if (userAnswer === correctAnswer) {
+                feedback.className = "feedback correct";
+                feedback.textContent = "¡Correcto! 🎉";
+                totalScore += exerciseScores[exerciseNumber];
+                solution.classList.add("show");
+            } else {
+                feedback.className = "feedback incorrect";
+                feedback.textContent = "Incorrecto. Vea la solución para revisar.";
+                solution.classList.add("show");
+            }
+            
+            document.getElementById("total-score").textContent = totalScore;
+        }
+
+        function resetForm() {
+            // Reiniciar todos los campos de entrada
+            const inputs = document.querySelectorAll('.answer-input');
+            inputs.forEach(input => {
+                input.value = '';
+            });
+            
+            // Ocultar todas las soluciones y retroalimentación
+            const solutions = document.querySelectorAll('.solution');
+            solutions.forEach(solution => {
+                solution.classList.remove("show");
+            });
+            
+            const feedbacks = document.querySelectorAll('.feedback');
+            feedbacks.forEach(feedback => {
+                feedback.className = "feedback";
+                feedback.textContent = "";
+            });
+            
+            // Reiniciar puntuación
+            totalScore = 0;
+            document.getElementById("total-score").textContent = totalScore;
+        }
+    </script>
+</body>
+</html>
