@@ -546,19 +546,122 @@
             font-weight: 500;
         }
         
+        /* Estilos para el botón del PDF */
+        .pdf-button {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 1.05em;
+            font-weight: 600;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            text-decoration: none;
+        }
+
+        .pdf-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .pdf-button-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 2% auto;
+            width: 90%;
+            height: 90%;
+            background-color: #fefefe;
+            border-radius: 12px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: #fff;
+            background-color: #ef4444;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+        }
+
+        .close-modal:hover {
+            background-color: #dc2626;
+            transform: scale(1.1);
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 25px 20px;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
-            
+
             .button {
                 display: block;
                 width: 100%;
                 margin: 10px 0;
+            }
+
+            .modal-content {
+                width: 95%;
+                height: 85%;
+                margin: 5% auto;
+            }
+
+            .close-modal {
+                right: 10px;
+                top: 5px;
+                width: 40px;
+                height: 40px;
+                font-size: 28px;
             }
         }
     </style>
@@ -597,6 +700,10 @@
             <h1>Práctica Módulo 2</h1>
             <div class="subtitle">Importancia de los Números · Aplicación en Sistemas Pecuarios</div>
         </header>
+
+        <div class="pdf-button-container">
+            <button class="pdf-button" onclick="openPdfModal()">📄 Ver Práctica en PDF</button>
+        </div>
 
         <section class="learning-objectives">
             <h2>Objetivos de Aprendizaje</h2>
@@ -1316,6 +1423,14 @@
         </div>
     </div>
 
+    <!-- Modal para visualizar el PDF -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closePdfModal()">&times;</button>
+            <iframe id="pdfEmbed" class="pdf-embed" src=""></iframe>
+        </div>
+    </div>
+
     <script>
         // Puntuación por ejercicio
         const exerciseScores = {
@@ -1377,23 +1492,67 @@
             inputs.forEach(input => {
                 input.value = '';
             });
-            
+
             // Ocultar todas las soluciones y retroalimentación
             const solutions = document.querySelectorAll('.solution');
             solutions.forEach(solution => {
                 solution.classList.remove("show");
             });
-            
+
             const feedbacks = document.querySelectorAll('.feedback');
             feedbacks.forEach(feedback => {
                 feedback.className = "feedback";
                 feedback.textContent = "";
             });
-            
+
             // Reiniciar puntuación
             totalScore = 0;
             document.getElementById("total-score").textContent = totalScore;
         }
+
+        // Funciones para el modal del PDF
+        function openPdfModal() {
+            const modal = document.getElementById('pdfModal');
+            const pdfEmbed = document.getElementById('pdfEmbed');
+
+            // Establecer la ruta del PDF
+            pdfEmbed.src = 'Practica_Modulo2_Importancia_Numeros.pdf';
+
+            // Mostrar el modal
+            modal.style.display = 'block';
+
+            // Prevenir scroll del body cuando el modal está abierto
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePdfModal() {
+            const modal = document.getElementById('pdfModal');
+            const pdfEmbed = document.getElementById('pdfEmbed');
+
+            // Ocultar el modal
+            modal.style.display = 'none';
+
+            // Limpiar el src del iframe
+            pdfEmbed.src = '';
+
+            // Restaurar scroll del body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar el modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target == modal) {
+                closePdfModal();
+            }
+        }
+
+        // Cerrar el modal con la tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePdfModal();
+            }
+        });
     </script>
 </body>
 </html>
